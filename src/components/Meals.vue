@@ -6,20 +6,20 @@
       :meal="meal" >
     </MealItem>
   </div>
-  <div>
-    <div v-if="!meals.length" class="flex justify-center text-gray-600">
-      There are no meals
-    </div>
+  <div v-if="!meals.length" class="flex justify-center text-gray-600">
+    There are no meals
   </div>
 </template>
 
 
 <script setup>
+import MealItem from './MealItem.vue';
+
 const { meals } = defineProps(
   {
     meals :{
       required: true,
-      type: Object
+      type: Array
     }
   }
 )

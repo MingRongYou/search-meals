@@ -14,6 +14,14 @@ export function searchMealsByLetter({ commit }, letter) {
 export function searchMealsByIngredient({ commit }, ingredient) {
   axiosClient.get(`filter.php?i=${ingredient}`)
     .then(({ data }) => {
-      commit('setMealsByIngredients', data.meals)
+      console.log('API response data:', data);
+      if (data.meals) {
+        commit('setMealsByIngredients', data.meals);
+      } else {
+        console.warn('No meals found for ingredient:', ingredient);
+      }
     })
+    .catch((error) => {
+      console.error('Error fetching meals:', error);
+    });
 };

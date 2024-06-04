@@ -5,5 +5,6 @@ export function setMealsByLetter(state, meals) {
   state.mealsByLetter = meals || []
 }
 export function setMealsByIngredients(state, meals) {
-  state.mealsByIngredient = meals || []
+  state.mealsByIngredient = meals || [];
+  console.log('Meals set in state:', state.mealsByIngredient);
 }
